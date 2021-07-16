@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router";
+import {connect} from "react-redux";
+import {Redirect} from "react-router";
 import styled from "styled-components";
 import Left from "./Left";
 import Main from "./Main";
@@ -62,30 +62,30 @@ const Layout = styled.div`
 `;
 
 function Home(props) {
-	return (
-		<Container>
-			{!props.user && <Redirect to="/" />}
-			<Content>
-				<Section>
-					<h5>
-						<a>Hiring in a hurray..?</a>
-					</h5>
-					<p>- Find talented pros in record time with LinkedIn and keep business moving.</p>
-				</Section>
-				<Layout>
-					<Left />
-					<Main />
-					<Right />
-				</Layout>
-			</Content>
-		</Container>
-	);
+    return (
+        <Container>
+            {!props.user && <Redirect to="/"/>}
+            <Content>
+                <Section>
+                    <h5>
+                        <a>Hiring in a hurray..?</a>
+                    </h5>
+                    <p>- Find talented pros in record time with LinkedIn and keep business moving.</p>
+                </Section>
+                <Layout>
+                    <Left/>
+                    <Main/>
+                    <Right/>
+                </Layout>
+            </Content>
+        </Container>
+    );
 }
 
 const mapStateToProps = (state) => {
-	return {
-		user: state.userState.user,
-	};
+    return {
+        user: state.userState.user,
+    };
 };
 
 export default connect(mapStateToProps)(Home);

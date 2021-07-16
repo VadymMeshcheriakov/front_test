@@ -1,8 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router";
+import {connect} from "react-redux";
+import {Redirect} from "react-router";
 import styled from "styled-components";
-import { signInAPI } from "../action";
+import {signInAPI} from "../action";
 
 const Container = styled.div``;
 
@@ -139,42 +139,42 @@ const Google = styled.button`
 `;
 
 function Login(props) {
-	return (
-		<Container>
-			{props.user && <Redirect to="/feed" />}
-			<Nav>
-				<a href="/">
-					<img src="/images/login-logo.svg" alt="" />
-				</a>
-				<div>
-					<Join>Join Now</Join>
-					<SignIn>Sign In</SignIn>
-				</div>
-			</Nav>
-			<Section>
-				<Hero>
-					<h1>Welcome to your professional community</h1>
-					<img src="/images/login-hero.svg" alt="" />
-				</Hero>
-				<Form>
-					<Google onClick={() => props.signIn()}>
-						<img src="/images/google.svg" alt="" />
-						Sign in with Google
-					</Google>
-				</Form>
-			</Section>
-		</Container>
-	);
+    return (
+        <Container>
+            {props.user && <Redirect to="/feed"/>}
+            <Nav>
+                <a href="/">
+                    <img src="/images/login-logo.svg" alt=""/>
+                </a>
+                <div>
+                    <Join>Join Now</Join>
+                    <SignIn>Sign In</SignIn>
+                </div>
+            </Nav>
+            <Section>
+                <Hero>
+                    <h1>Welcome to your professional community</h1>
+                    <img src="/images/login-hero.svg" alt=""/>
+                </Hero>
+                <Form>
+                    <Google onClick={() => props.signIn()}>
+                        <img src="/images/google.svg" alt=""/>
+                        Sign in with Google
+                    </Google>
+                </Form>
+            </Section>
+        </Container>
+    );
 }
 
 const mapStateToProps = (state) => {
-	return {
-		user: state.userState.user,
-	};
+    return {
+        user: state.userState.user,
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	signIn: () => dispatch(signInAPI()),
+    signIn: () => dispatch(signInAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

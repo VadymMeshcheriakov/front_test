@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -138,61 +138,61 @@ const CommunityCard = styled(ArtCard)`
 `;
 
 function Left(props) {
-	let photoUrl = props.user.photoURL ? props.user.photoURL : "/images/photo.svg";
-	return (
-		<Container>
-			<ArtCard>
-				<UserInfo>
-					<CardBackground />
-					<a>
-						<Photo photoUrl={photoUrl} />
-						<Link>Welcome, {props.user ? props.user.displayName : "there"}!</Link>
-					</a>
-					<a>
-						<AddPhotoText>Add a photo</AddPhotoText>
-					</a>
-				</UserInfo>
-				<Widget>
-					<a>
-						<div>
-							<span>Connections</span>
-							<span>Grow Your Network</span>
-						</div>
-						<img src="/images/widget-icon.svg" alt="" />
-					</a>
-				</Widget>
-				<Item>
+    let photoUrl = props.user.photoURL ? props.user.photoURL : "/images/photo.svg";
+    return (
+        <Container>
+            <ArtCard>
+                <UserInfo>
+                    <CardBackground/>
+                    <a>
+                        <Photo photoUrl={photoUrl}/>
+                        <Link>Welcome, {props.user ? props.user.displayName : "there"}!</Link>
+                    </a>
+                    <a>
+                        <AddPhotoText>Add a photo</AddPhotoText>
+                    </a>
+                </UserInfo>
+                <Widget>
+                    <a>
+                        <div>
+                            <span>Connections</span>
+                            <span>Grow Your Network</span>
+                        </div>
+                        <img src="/images/widget-icon.svg" alt=""/>
+                    </a>
+                </Widget>
+                <Item>
 					<span>
-						<img src="/images/item-icon.svg" alt="" />
+						<img src="/images/item-icon.svg" alt=""/>
 						My Items
 					</span>
-				</Item>
-			</ArtCard>
-			<CommunityCard>
-				<a>
-					<span>Groups</span>
-				</a>
-				<a>
+                </Item>
+            </ArtCard>
+            <CommunityCard>
+                <a>
+                    <span>Groups</span>
+                </a>
+                <a>
 					<span>
 						Events
-						<img src="/images/plus-icon.svg" alt="" />
+						<img src="/images/plus-icon.svg" alt=""/>
 					</span>
-				</a>
-				<a>
-					<span>Follow Hashtags</span>
-				</a>
-				<a>
-					<span>Discover More</span>
-				</a>
-			</CommunityCard>
-		</Container>
-	);
+                </a>
+                <a>
+                    <span>Follow Hashtags</span>
+                </a>
+                <a>
+                    <span>Discover More</span>
+                </a>
+            </CommunityCard>
+        </Container>
+    );
 }
 
 const mapStateToProps = (state) => {
-	return {
-		user: state.userState.user,
-	};
+    return {
+        user: state.userState.user,
+    };
 };
 
 export default connect(mapStateToProps)(Left);
